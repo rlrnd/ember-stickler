@@ -5,7 +5,8 @@ import runValidations from '../../utils/run-validations';
 const {
   Component,
   computed,
-  run
+  run,
+  getOwner
   } = Ember;
 
 export default Component.extend({
