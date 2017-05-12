@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import layout from './template';
 import runValidations from '../../utils/run-validations';
-import getOwner from 'ember-getowner-polyfill';
 
 const {
   Component,
@@ -117,7 +116,7 @@ export default Component.extend({
     }
 
     rules = rules.map((rule) => {
-      return owner._lookupFactory(`validation:${rule}`);
+      return owner.resolveRegistration(`validation:${rule}`);
     })
       .filter((rule) => {
         return !!rule;
